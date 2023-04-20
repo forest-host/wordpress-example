@@ -1,0 +1,47 @@
+{
+    "name": "forest-host/wordpress-example",
+    "description": "Deployable WordPress setup using Composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Massim",
+            "email": "massim@forest.host"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "wordpress/wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "wordpress/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wordpress/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "johnpbloch/wordpress": "^6.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    }
+}
